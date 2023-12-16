@@ -1,29 +1,11 @@
-name : Budget tracker
+name : Manual approval
 
 on:
   push:
     branches: ["main"]
 
 jobs:
-  # monthly-expenses:
-
-  #   runs-on: ubuntu-latest
-  #   defaults:
-  #     run:
-  #      working-directory: ./src
-
-  #   env:
-  #     sender: ${{secrets.app_name}}
-  #     password: ${{secrets.app_password}}
-
-  #   steps:
-  #   - uses: actions/checkout@v3
-
-  #   - name: Budget Tracker
-  #     run: python3 -m budget_tracker.budget_tracker
-
   annual-expenses:
-    #needs: monthly-expenses
 
     runs-on: ubuntu-latest
 
