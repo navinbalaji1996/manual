@@ -1,0 +1,43 @@
+name : Budget tracker
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  # monthly-expenses:
+
+  #   runs-on: ubuntu-latest
+  #   defaults:
+  #     run:
+  #      working-directory: ./src
+
+  #   env:
+  #     sender: ${{secrets.app_name}}
+  #     password: ${{secrets.app_password}}
+
+  #   steps:
+  #   - uses: actions/checkout@v3
+
+  #   - name: Budget Tracker
+  #     run: python3 -m budget_tracker.budget_tracker
+
+  annual-expenses:
+    #needs: monthly-expenses
+
+    runs-on: ubuntu-latest
+
+
+    steps:
+    - uses: actions/checkout@v3
+  
+    - name: Waiting for approval
+      uses: trstringer/manual-approval@v1
+      timeout-minutes: 1
+
+      with:
+        secret: ${{ github.TOKEN }}
+        approvers: navinbalaji1996
+
+    - name: Print Hello
+      run: echo "Hello"
