@@ -8,18 +8,12 @@ jobs:
   annual-expenses:
 
     runs-on: ubuntu-latest
+    environment:
+      name: main
 
 
     steps:
     - uses: actions/checkout@v3
   
-    - name: Waiting for approval
-      uses: trstringer/manual-approval@v1
-      timeout-minutes: 1
-
-      with:
-        secret: ${{ github.TOKEN }}
-        approvers: navinbalaji1996
-
     - name: Print Hello
       run: echo "Hello"
